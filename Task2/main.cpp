@@ -19,6 +19,25 @@ enum GameSymbols
 	ZERO
 };
 
+//4. * Создать структуру(struct) данных «Поле для игры в крестики - нолики» и снабдить его всеми необходимыми свойствами(подумайте что может понадобиться).
+//Результат окончания игры
+enum GameFinishResult
+{
+	TIE,
+	WIN_PlAYER1,
+	WIN_PLAYER2
+};
+
+struct GameField
+{
+	GameSymbols firstPlayerSymbol;
+	GameSymbols secondPlayerSymbol;
+	GameSymbols gameField[3][3];
+	bool isFinished;
+	bool isFirstPlayerTurn;
+	GameFinishResult gameResult;
+};
+
 int main()
 {
 	//1. Создать и инициализировать переменные пройденных типов данных(short int, int, long long, char, bool, float, double).
@@ -32,12 +51,12 @@ int main()
 	double double_var = 23.0;
 
 	//3. Создать массив, способный содержать значения такого перечисления и инициализировать его.
-	const int array_size = 9;
-	GameSymbols game_state[array_size];
-	for (int i = 0; i < array_size; i++)
+	const int arraySize = 9;
+	GameSymbols gameState[arraySize];
+	for (int i = 0; i < arraySize; i++)
 	{
-		game_state[i] = EMPTY;
-		std::cout << game_state[i] << " ";
+		gameState[i] = EMPTY;
+		std::cout << gameState[i] << " ";
 
 		if ((i + 1) % 3 == 0)
 			std::cout << std::endl;
