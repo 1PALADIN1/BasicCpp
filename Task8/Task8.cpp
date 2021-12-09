@@ -203,7 +203,6 @@ void congrats(const Game& game)
     std::cout << "DRAW :/ " << std::endl;
 }
 
-//TODO: universal
 GameState updateGameState(const Game& game)
 {
     //победа в строках
@@ -290,7 +289,6 @@ Coord getHumanCoord(const Game& game)
     return c;
 }
 
-//TODO: universal (refactor)
 Coord getAiCoord(Game& game)
 {
     // 1. Можем ли мы выиграть
@@ -304,8 +302,6 @@ Coord getAiCoord(Game& game)
             game.ppField[y][x] = game.ai;
             if (updateGameState(game) == GameState::WON_AI)
             {
-                std::cout << "AI can win at " << y << ", " << x << std::endl; //TODO
-
                 game.ppField[y][x] = Cell::EMPTY;
                 return { y, x };
             }
@@ -325,8 +321,6 @@ Coord getAiCoord(Game& game)
             game.ppField[y][x] = game.human;
             if (updateGameState(game) == GameState::WON_HUMAN)
             {
-                std::cout << "Player can win at " << y << ", " << x << std::endl; //TODO
-
                 game.ppField[y][x] = Cell::EMPTY;
                 return { y, x };
             }
